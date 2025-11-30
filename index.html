@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Personal Expense Tracker</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <div class="header">
+      <div class="header-left">
+        <h1>Good Morning, User!</h1>
+        <p class="header-subtitle">Here's your financial overview</p>
+      </div>
+      <div class="header-controls">
+        <div class="dropdown">Daily <i class="fas fa-chevron-down"></i></div>
+        <div class="date-picker">
+          <i class="fas fa-calendar"></i>
+          <span id="currentDate">16 January 2025</span>
+        </div>
+        <button class="export-btn">
+          <i class="fas fa-download"></i>
+          Export
+        </button>
+      </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Dashboard Cards -->
+      <div class="dashboard-grid">
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Income</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount income-amount">LKR 0.00</div>
+          <div class="change positive">
+            <i class="fas fa-arrow-up"></i>0% vs Last month
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h3 class="card-title">Monthly Expenses</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount expense-amount">LKR 0.00</div>
+          <div class="change positive">
+            <i class="fas fa-arrow-up"></i>0% vs Last month
+          </div>
+        </div>
+
+        <div class="card balance-card">
+          <div class="card-header">
+            <h3 class="card-title">Current Balance</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="amount balance-amount">LKR 0.00</div>
+          <div class="change positive">
+            <i class="fas fa-wallet"></i>Available to spend
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts Section -->
+      <div class="chart-section">
+        <div class="card chart-card">
+          <div class="card-header">
+            <h3 class="card-title">Financial Overview</h3>
+            <div class="chart-controls">
+              <div class="dropdown">
+                Yearly <i class="fas fa-chevron-down"></i>
+              </div>
+              <button class="filter-btn">
+                <i class="fas fa-filter"></i> Filter
+              </button>
+            </div>
+          </div>
+          <div class="chart-container">
+            <div class="chart-bars">
+              <!-- Example bars -->
+              <div class="chart-bar" style="height: 120px">
+                <div class="bar-income" style="height: 80px"></div>
+                <div class="bar-expense" style="height: 40px"></div>
+              </div>
+              <div class="chart-bar" style="height: 200px">
+                <div class="chart-tooltip">
+                  <div class="tooltip-title">April 2025</div>
+                  <div class="tooltip-income">Income: LKR 10,894</div>
+                  <div class="tooltip-expense">Expenses: LKR 7,768</div>
+                </div>
+                <div class="bar-income" style="height: 120px"></div>
+                <div class="bar-expense" style="height: 80px"></div>
+              </div>
+            </div>
+          </div>
+          <div class="chart-labels">
+            <span>Feb</span><span>Mar</span><span>Apr</span><span>May</span>
+            <span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span>
+            <span>Oct</span><span>Nov</span><span>Dec</span>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <div class="legend-color income-color"></div>
+              <span>Income</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-color expense-color"></div>
+              <span>Expenses</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Expense Breakdown -->
+        <div class="card expenses-card">
+          <div class="card-header">
+            <h3 class="card-title">Expense Breakdown</h3>
+            <button class="card-menu"><i class="fas fa-ellipsis-h"></i></button>
+          </div>
+          <div class="expenses-subtitle">Spending by category</div>
+          <div class="expenses-breakdown">
+            <div class="total-expenses">LKR 0.00</div>
+            <div class="period-tabs">
+              <span class="period-tab">Daily</span>
+              <span class="period-tab">Weekly</span>
+              <span class="period-tab active">Monthly</span>
+            </div>
+            <div class="period-stats">
+              <div class="period-item">
+                <span class="period-label">Daily Average</span>
+                <span class="period-amount">LKR 0</span>
+              </div>
+              <div class="period-item">
+                <span class="period-label">Weekly Total</span>
+                <span class="period-amount">LKR 0</span>
+              </div>
+              <div class="period-item">
+                <span class="period-label">Monthly Total</span>
+                <span class="period-amount">LKR 0</span>
+              </div>
+            </div>
+            <div class="color-legend">
+              <div class="legend-title">Spending Categories</div>
+              <div class="legend-items">
+                <div class="legend-item">
+                  <div class="legend-dot dot-food"></div>
+                  <span>Food & Health</span>
+                  <span class="legend-amount">0%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot dot-entertainment"></div>
+                  <span>Entertainment</span>
+                  <span class="legend-amount">0%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot dot-shopping"></div>
+                  <span>Shopping</span>
+                  <span class="legend-amount">0%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot dot-investment"></div>
+                  <span>Investment</span>
+                  <span class="legend-amount">0%</span>
+                </div>
+                <div class="legend-item">
+                  <div class="legend-dot dot-other"></div>
+                  <span>Other</span>
+                  <span class="legend-amount">0%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Transactions Table -->
+      <div class="card transactions-section">
+        <div class="card-header">
+          <h3 class="card-title">Recent Transactions</h3>
+          <div class="filters">
+            <button class="filter-btn"><i class="fas fa-sort"></i> Sort</button>
+            <button class="filter-btn">
+              <i class="fas fa-filter"></i> Filter
+            </button>
+          </div>
+        </div>
+        <table class="transactions-table">
+          <thead>
+            <tr>
+              <th>Date <i class="fas fa-sort"></i></th>
+              <th>Description <i class="fas fa-sort"></i></th>
+              <th>Category <i class="fas fa-sort"></i></th>
+              <th>Amount <i class="fas fa-sort"></i></th>
+              <th>Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="transactionsBody">
+            <!-- JS will populate -->
+          </tbody>
+        </table>
+        <div class="table-footer">
+          <button class="view-all-btn">View All Transactions</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Floating Add Buttons -->
+    <div class="add-buttons">
+      <button
+        class="fab fab-income"
+        onclick="openIncomeModal()"
+        title="Add Income"
+      >
+        <i class="fas fa-plus"></i>
+      </button>
+      <button
+        class="fab fab-expense"
+        onclick="openExpenseModal()"
+        title="Add Expense"
+      >
+        <i class="fas fa-minus"></i>
+      </button>
+    </div>
+
+    <!-- Income Modal -->
+    <div id="incomeModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Add Income</h2>
+          <button class="close-btn" onclick="closeModal('incomeModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="incomeForm">
+            <div class="form-group">
+              <label class="form-label">Amount (LKR)</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0.01"
+                name="amount"
+                id="incomeAmount"
+                placeholder="Enter amount"
+                required
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select
+                name="category"
+                id="incomeCategory"
+                required
+                class="form-select"
+              >
+                <option value="">Select category</option>
+                <option value="salary">Salary</option>
+                <option value="freelance">Freelance</option>
+                <option value="business">Business</option>
+                <option value="investment">Investment</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <input
+                type="text"
+                name="description"
+                id="incomeDescription"
+                placeholder="Enter description"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date</label>
+              <input
+                type="date"
+                name="date"
+                id="incomeDate"
+                required
+                class="form-input"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closeModal('incomeModal')"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Add Income</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- Expense Modal -->
+    <div id="expenseModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Add Expense</h2>
+          <button class="close-btn" onclick="closeModal('expenseModal')">
+            &times;
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="expenseForm">
+            <div class="form-group">
+              <label class="form-label">Amount (LKR)</label>
+              <input
+                type="number"
+                step="0.01"
+                min="0.01"
+                name="amount"
+                id="expenseAmount"
+                placeholder="Enter amount"
+                required
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Category</label>
+              <select
+                name="category"
+                id="expenseCategory"
+                required
+                class="form-select"
+              >
+                <option value="">Select category</option>
+                <option value="food">Food & Health</option>
+                <option value="entertainment">Entertainment</option>
+                <option value="shopping">Shopping</option>
+                <option value="investment">Investment</option>
+                <option value="transport">Transport</option>
+                <option value="utilities">Utilities</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Description</label>
+              <input
+                type="text"
+                name="description"
+                id="expenseDescription"
+                placeholder="Enter description"
+                class="form-input"
+              />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Date</label>
+              <input
+                type="date"
+                name="date"
+                id="expenseDate"
+                required
+                class="form-input"
+              />
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                onclick="closeModal('expenseModal')"
+              >
+                Cancel
+              </button>
+              <button type="submit" class="btn btn-primary">Add Expense</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
