@@ -26,7 +26,7 @@ A simple **Expense Tracker** web application built with **PHP** and **CSS**, des
 
 ## 📂 Project Structure
 
-- expense_tracker/
+expense_tracker/
 │
 ├── db.php # Database connection
 ├── dashboard.php # Main dashboard page
@@ -82,6 +82,10 @@ Visit http://localhost/expense_tracker/dashboard.php
 **📷 Demo**
 
 
+https://github.com/user-attachments/assets/edab38bb-00c3-4dd0-8099-0820451f52e6
+
+
+
 
  **📝 License**
 
@@ -104,3 +108,4 @@ Advanced analytics and charts for expenses
 Mobile-friendly responsive layout
 
 Export reports to PDF or Excel
+
